@@ -99,7 +99,11 @@ namespace {
             $this->textToSearch = $text->word();
 
             $I = $this;
-            $I->fillField(HomePage::SEARCH_INPUT_FIELD, $this->textToSearch);
+            if ($arg1 == 'random') {
+                $I->fillField(HomePage::SEARCH_INPUT_FIELD, $this->textToSearch);
+            } else {
+                $I->fillField(HomePage::SEARCH_INPUT_FIELD, $arg1);
+            }
         }
 
         /**

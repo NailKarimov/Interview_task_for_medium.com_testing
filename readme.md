@@ -10,7 +10,7 @@ See table for more details: (https://codeception.com/docs/01-Introduction)
 
 - [Installation](#installation)
 - [Basic Usage](#basic-usage)
-	- [Client data generator](#client-data-generator)
+	- [Search Text with codeception](#search-text-with-codeception)
 - [Gherkin BDD commands](#gherkin-commands)	
     - [Basic Gherkin commands](#basic-gherkin-commands)
 

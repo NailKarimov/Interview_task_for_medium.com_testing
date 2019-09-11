@@ -31,7 +31,7 @@ class HomePageTextSearchCest
      * @param \AcceptanceTester $I
      * @throws \Exception
      */
-    public function errorFindOnErp(\AcceptanceTester $I, Example $example)
+    public function searchText(\AcceptanceTester $I, Example $example)
     {
         $faker = new Generator();
         $text = new Lorem($faker);

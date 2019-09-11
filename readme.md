@@ -3,6 +3,9 @@
 Simple project for testing www.medium.com website
 Scripts are using several extension libraries, such as "fzaninotto" Faker library, to generate some random data.
 
+For Javascript testing was used "Codeception" library, with acceptance suite 
+See table for more details: (https://codeception.com/docs/01-Introduction)
+
 # Table of Contents
 
 - [Installation](#installation)
@@ -14,8 +17,8 @@ Scripts are using several extension libraries, such as "fzaninotto" Faker librar
 ## Installation
 
 ```sh
-- git clone 
-- cd 
+- git clone https://github.com/NailKarimov/medium-testing.git
+- cd medium-testing
 - composer install
 - ./vendor/bin/codecept bootstrap
 - ./vendor/bin/codecept build
@@ -33,7 +36,7 @@ If you will use Selenium, you need to download it and run (for Mac can use "http
 
 ### `Home page text search`
 
-Search on website results for randon text searching 
+Search on website results for random text searching 
 
 To check, run script:
 ```sh 
@@ -73,7 +76,7 @@ Then we run a command that will automatically generate templates for implementin
 ./vendor/bin/codecept gherkin:snippets acceptance
 ```
 Let's see what happened. We launch a team that will show us which methods (step) we now have an implementation.
-
+       
 ```
 ./vendor/bin/codecept gherkin:steps acceptance
 ```
@@ -94,8 +97,23 @@ Output result:
     | Check if any results with word given on result page | AcceptanceTester::checkIfAnyResultsWithWordGivenOnResultPage |
     +-----------------------------------------------------+--------------------------------------------------------------+
    
-Try to run scenario via gherkin
+### `Try to run scenario via gherkin`
+We have simple scenario:
 
+    Feature: SearchInHomePage
+        In order to search any information on medium.com
+        As a simple user
+        I need to open website
+
+    Scenario: try SearchInHomePage
+        Given Login to  "https://medium.com" home page
+        When Accept cookies
+        Then Open text search field
+        And  Fill input field with "random" text to search
+        And  Click on search button
+        Then Check if any results with word given on result page
+        
+Let us try to run this scenario: 
 ### `Search text`
 
 ```sh 

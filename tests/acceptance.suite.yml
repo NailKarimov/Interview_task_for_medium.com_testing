@@ -8,6 +8,8 @@ actor: AcceptanceTester
 modules:
     enabled:
         - Helper\Acceptance
+        - Asserts
+        - Cli
         - WebDriver
 #------------------------------------------------------------------------------------------------------
     config:

@@ -10,7 +10,7 @@ class HomePage
 {
     const PAGE_LOGO = './/*[@id = \'logo_svg__logo-lumify_xA0_Image\']';
     const SEARCH_BUTTON = './/label[@title = \'Search Medium\']';
-    const SEARCH_INPUT_FIELD = './/input[@placeholder = \'Search Medium\']';
+    const SEARCH_INPUT_FIELD = './/input[@class = \'gLFyf gsfi\']';
     const COOKIE_MESSAGE = 'To make Medium work, we log user data. By using Medium, you agree to our';
     const COOKIE_MESSAGE_CLOSE = './/button[@data-action = \'butter-bar-action\']';
 

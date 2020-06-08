@@ -1,10 +1,13 @@
-# Autotets for www.medium.com testing
+# Autotets for www.medium.com testing and simple API weather test
 
 Simple project for testing www.medium.com website
 Scripts are using several extension libraries, such as "fzaninotto" Faker library, to generate some random data.
 
-For Javascript testing was used "Codeception" library, with acceptance suite 
+For testing was used "Codeception" library, with acceptance suite 
 See table for more details: (https://codeception.com/docs/01-Introduction)
+
+For API testing was used https://openweathermap.org/ to try simle GET weather for Riga
+Instead security, directly auth key was used: "92f56a137e71efef86a9bc9861c22304"
 
 # Table of Contents
 
@@ -13,6 +16,8 @@ See table for more details: (https://codeception.com/docs/01-Introduction)
 	- [Search Text with codeception](#search-text-with-codeception)
 - [Gherkin BDD commands](#gherkin-commands)	
     - [Basic Gherkin commands](#basic-gherkin-commands)
+- [GET API request for Riga](#api-commands)	
+ 
 
 ## Installation
 
@@ -155,3 +160,35 @@ Let us try to run this scenario:
 
     OK (1 test, 4 assertions)
     admins-MacBook-Pro-6:medium-testing1 Nail$ 
+    
+## GET API request for Riga
+    
+    To demostrate simple API request, was used "https://openweathermap.org/api" 
+    with simple weather output of current weather. 
+    
+```sh 
+ ../vendor/bin/codecept run tests/api/WeatherCheckCest.php --steps --html --xml
+```
+
+    Api Tests (1) ----------------------------------------------------------------------------------------------------------
+    Recorder is disabled, no available modules
+    WeatherCheckCest: Try to test
+    Signature: WeatherCheckCest:tryToTest
+    Test: tests\api\WeatherCheckCest.php:tryToTest
+    Scenario --
+     I send get "http://api.openweathermap.org/data/2.5/weather?q=Riga&appid=92f56a137e71efef86a9bc9861c22304"
+     I see response is json
+     I see response contains "Rīga"
+     I see response contains json {"timezone":"10800","id":"456173","name":"Rīga","cod":"200"}
+     PASSED
+    
+    ------------------------------------------------------------------------------------------------------------------------
+    
+    
+    Time: 00:00.138, Memory: 10.00 MB
+    
+    OK (1 test, 4 assertions)
+    - HTML report generated in file://C:\Users\karim\PhpstormProjects\medium-testing\tests/_output\report.html
+    - XML report generated in file://C:\Users\karim\PhpstormProjects\medium-testing\tests/_output\report.xml
+    
+    karim@DESKTOP-Q6JKMVI MINGW64 ~/PhpstormProjects/medium-testing (master)
